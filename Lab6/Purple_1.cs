@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Diagnostics;
 using System.Runtime.Remoting.Messaging;
 
-namespace Lab6
+namespace Lab_6
 {
     internal class Purple_1
     {
