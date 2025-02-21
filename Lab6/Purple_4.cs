@@ -71,14 +71,13 @@ namespace Lab_6
 
             public void Add(Sportsman newSportsman)
             {
-                if (_teammates == null) return;
                 Array.Resize(ref _teammates, _teammates.Length + 1); //resize to n+1
                 _teammates[_teammates.Length-1] = newSportsman; //add new sportsman to the end of new array
             }
 
             public void Add(Sportsman[] newSportsmen)
             {
-                if (_teammates == null || newSportsmen == null) return;
+                if (newSportsmen == null) return;
                 int oldLength = _teammates.Length;
                 Array.Resize(ref _teammates, _teammates.Length + newSportsmen.Length); //resize to n+k
                 Array.Copy(newSportsmen, 0, _teammates, oldLength, newSportsmen.Length); //add the new sportsmen to the end of the new array  
@@ -86,7 +85,7 @@ namespace Lab_6
 
             public void Add(Group group) //copy ALL the group members of the given group? Seems so
             {
-                if (_teammates == null || group.Sportsmen == null) return;
+                if (group.Sportsmen == null) return;
                 int oldLength = _teammates.Length;
                 Array.Resize(ref _teammates, _teammates.Length + group.Sportsmen.Length); //resize to n+k
                 Array.Copy(group.Sportsmen, 0, _teammates, oldLength, group.Sportsmen.Length); //add the new sportsmen to the end of the new array 
