@@ -115,7 +115,7 @@ namespace Lab_6
 
             public static Group Merge(Group group1, Group group2)
             {
-                if (group1.Sportsmen == null || group2.Sportsmen == null) return default(Group); //Should full group + empty group = same full group?
+                if (group1.Sportsmen == null || group2.Sportsmen == null) return default(Group); //Should non-empty group + empty group = the non-empty group?
                 Group finalists = new Group("Финалисты");
 
                 group1.Sort();
