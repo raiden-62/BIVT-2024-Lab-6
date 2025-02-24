@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab_6
 {
-    internal class Purple_2
+    public class Purple_2
     {
         public struct Participant
         {
@@ -34,17 +34,12 @@ namespace Lab_6
                 }
             }
 
-            public double Result
+            public int Result
             {
                 get
                 {
                     if (_marks == null) return 0;
-                    Array.Sort(_marks);
-                    double sum = 0;
-                    for (int i = 1; i < _marks.Length-1; i++)
-                    {
-                        sum += _marks[i];
-                    }
+                    int sum = _marks.Sum() - _marks.Max() - _marks.Min(); ;
                     sum += 60 + (_distance-120) * 2 > 0 ? 60 + (_distance-120) * 2 : 0;
                     return sum;
                 }

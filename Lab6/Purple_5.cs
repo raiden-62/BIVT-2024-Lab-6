@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_6
 {
-    internal class Purple_5
+    public class Purple_5
     {
         public struct Response
         {
@@ -34,13 +34,13 @@ namespace Lab_6
                     switch (questionNumber) 
                     {
                         case 1:
-                            if (responses[i].Animal != "-") answered++;
+                            if (responses[i].Animal != null) answered++;
                             break;
                         case 2:
-                            if (responses[i].CharacterTrait != "-") answered++;
+                            if (responses[i].CharacterTrait != null) answered++;
                             break;
                         case 3:
-                            if (responses[i].Concept != "-") answered++;
+                            if (responses[i].Concept != null) answered++;
                             break;
                         default:
                             return 0;
@@ -95,21 +95,21 @@ namespace Lab_6
                     switch (question)
                     {
                         case 1:
-                            if (response.Animal != "-")
+                            if (response.Animal != null)
                             {
                                 if(!responseCount.ContainsKey(response.Animal)) responseCount.Add(response.Animal, 1);
                                 else responseCount[response.Animal]++;
                             }
                             break;
                         case 2:
-                            if (response.CharacterTrait != "-")
+                            if (response.CharacterTrait != null)
                             {
                                 if (!responseCount.ContainsKey(response.CharacterTrait)) responseCount.Add(response.CharacterTrait, 1);
                                 else responseCount[response.CharacterTrait]++;
                             }
                             break;
                         case 3:
-                            if (response.Concept != "-")
+                            if (response.Concept != null)
                             {
                                 if (!responseCount.ContainsKey(response.Concept)) responseCount.Add(response.Concept, 1);
                                 else responseCount[response.Concept]++;

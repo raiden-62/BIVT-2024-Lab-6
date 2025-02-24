@@ -8,7 +8,7 @@ using System.Runtime.Remoting.Messaging;
 
 namespace Lab_6
 {
-    internal class Purple_1
+    public class Purple_1
     {
         public struct Participant
         {

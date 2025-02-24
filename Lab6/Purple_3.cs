@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Lab_6
 {
-    internal class Purple_3
+    public class Purple_3
     {
         public struct Participant
         {
@@ -14,6 +14,8 @@ namespace Lab_6
             private string _surname;
             private double[] _marks;
             private int[] _places;
+
+            private int _marksAcquired;
 
             public string Name => _name;
             public string Surname => _surname;
@@ -51,20 +53,24 @@ namespace Lab_6
             {
                 _name = name;
                 _surname = surname;
-                _marks = new double[0];
+                _marksAcquired = 0;
+                _marks = new double[7];
                 _places = new int[7];
             }
 
             public void Evaluate(double result)
             {
-                if (_marks.Length == 7 || _marks == null) return; 
-                Array.Resize(ref _marks, _marks.Length+1);
-                _marks[_marks.Length-1] = result;
+                if (_marks == null || _marksAcquired >= 7) return; 
+                _marks[_marksAcquired++] = result;
             }
 
             public static void SetPlaces(Participant[] participants)
             {
                 if (participants == null) return;
+                foreach (var part in participants)
+                {
+                    if (part.Marks == null) return;
+                }
                 for (int judgeIndex = 0; judgeIndex < 7; judgeIndex++)
                 {
                     SortByJudge(participants, judgeIndex);
@@ -76,6 +82,10 @@ namespace Lab_6
             }
             private static void SortByJudge(Participant[] array, int judgeIndex)
             {
+                foreach (var part in array)
+                {
+                    if (part.Marks == null) return;
+                }
                 for (int i = 0; i < array.Length; i++)
                 {
                     Participant key = array[i];
@@ -93,6 +103,10 @@ namespace Lab_6
             public static void Sort(Participant[] array)
             {
                 if (array == null) return;
+                foreach (var part in array)
+                {
+                    if (part.Places == null) return;
+                }
                 for (int i = 0; i < array.Length; i++)
                 {
                     Participant key = array[i];
@@ -113,6 +127,11 @@ namespace Lab_6
                 if (p1.Score != p2.Score) return p1.Score > p2.Score; 
                 if (p1.Places.Min() != p1.Places.Min()) return p1.Places.Min() < p1.Places.Min(); //Parity by sum of places
                 return p1.Marks.Sum() > p2.Marks.Sum(); //Parity by max judge place
+            }
+
+            public void Print()
+            {
+                Console.WriteLine(_name);
             }
         }
     }
