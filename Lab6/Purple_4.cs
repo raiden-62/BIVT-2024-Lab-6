@@ -63,10 +63,14 @@ namespace Lab_6
             }
             public Group(Group group)
             {
-                _name = group.Name; 
-                _teammates = new Sportsman[0]; //add check for if the given one is null
+                _name = group.Name;
+                if (group.Sportsmen == null)//no sportsmen to copy
+                {
+                    _teammates = new Sportsman[0];
+                    return;
+                }
+                _teammates = new Sportsman[group.Sportsmen.Length];
                 Array.Copy(group.Sportsmen, _teammates, group.Sportsmen.Length);
-
             }
 
             public void Add(Sportsman newSportsman)

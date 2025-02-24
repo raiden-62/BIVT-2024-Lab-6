@@ -22,7 +22,7 @@ namespace Lab_6
 
             //program.Test4();
             
-            program.Test5();
+            //program.Test5();
         }
 
         public void Test1()
